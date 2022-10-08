@@ -52,6 +52,38 @@ const Post = sequelize.define('post',{
     }
 })
 
+const OtherUser = sequelize.define('otheruser',{
+    otherId:{type:DataTypes.INTEGER,allowNull:false,primaryKey:true},
+    username: commonAttr,
+    profilePicture:commonAttr
+})
+
+
+const OtherPost = sequelize.define('otherpost',{
+    postId:{
+        type:DataTypes.INTEGER,
+        allowNull:false,
+        primaryKey:true
+    },
+    title:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
+    displayImageLink:commonAttr,
+    originalImageLink:commonAttr,
+    numFavourites:commonAttr2,
+    numViews:commonAttr2,
+    numComments:commonAttr2,
+    postedBy:{
+        type:DataTypes.INTEGER,
+        allowNull:false,
+        references:{
+            model:OtherUser,
+            key:'userId'
+        }
+    }
+})
+
 
 sequelize.sync()
 
