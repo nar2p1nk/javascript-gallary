@@ -1,2 +1,4 @@
 apikeys.txt
 images/
+node_modules/
+test.*
