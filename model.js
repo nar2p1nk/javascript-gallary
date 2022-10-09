@@ -56,7 +56,7 @@ const OtherUser = sequelize.define('otheruser',{
     otherId:{type:DataTypes.INTEGER,allowNull:false,primaryKey:true},
     username: commonAttr,
     profilePicture:commonAttr
-})
+},{timestamps:false})
 
 
 const OtherPost = sequelize.define('otherpost',{
@@ -82,7 +82,7 @@ const OtherPost = sequelize.define('otherpost',{
             key:'userId'
         }
     }
-})
+},{timestamps:false})
 
 
 sequelize.sync()
@@ -90,13 +90,13 @@ sequelize.sync()
 
 
 
-try{
-    sequelize.authenticate()
-    console.log('connection sucessful')
-}
-catch(err){
-    console.error('unable to connect to database')
-}
+//try{
+//    sequelize.authenticate()
+//    console.log('connection sucessful')
+//}
+//catch(err){
+//    console.error('unable to connect to database')
+//}
 
 
 
